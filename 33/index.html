@@ -7,11 +7,9 @@
 
 <title>Gautam Kumar Jha</title>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -99,9 +97,6 @@ body{
     .right-col {
         flex: 1.2;
     }
-    .benefits {
-        grid-template-columns: 1fr !important;
-    }
 }
 
 .profile{
@@ -188,7 +183,6 @@ h2{
     background: rgba(20, 184, 166, 0.06);
 }
 
-/* CTA Button Styles */
 .btn-wrapper {
     position: relative;
     z-index: 2;
@@ -274,124 +268,99 @@ h2{
         padding: 16px;
     }
 }
-
 </style>
-
-
-
 </head>
 
 <body>
 
 <div class="wrapper">
-
-<div class="card">
-    
-    <!-- Top Block: Identity & Profile Stats -->
-    <div class="layout-grid">
-        <div class="left-col">
-            <img src="https://growthsteps.pages.dev/gautam%20kumara%20jha.jpg" class="profile" alt="Profile">
-            
-            <div class="verify">
-                <i class="fas fa-check-circle"></i>
-                Verified Learning Community
+    <div class="card">
+        <div class="layout-grid">
+            <div class="left-col">
+                <img src="https://growthsteps.pages.dev/gautam%20kumara%20jha.jpg" class="profile" alt="Profile">
+                <div class="verify">
+                    <i class="fas fa-check-circle"></i>
+                    Verified Learning Community
+                </div>
+                <h2>GAUTAM KUMAR JHA</h2>
+                <div class="stats">
+                    ⭐ 100,000+ Learners <br>
+                    🌍 Global Learning Community <br>
+                    🔥 Daily Educational Updates
+                </div>
             </div>
 
-            <h2>GAUTAM KUMAR JHA</h2>
-
-            <div class="stats">
-                ⭐ 100,000+ Learners <br>
-                🌍 Global Learning Community <br>
-                🔥 Daily Educational Updates
+            <div class="right-col" style="width: 100%;">
+                <div class="text">
+                    📚 A dedicated community for Stock Market Education and Financial Knowledge.<br><br>
+                    Learn market concepts, trading basics, technical analysis, and financial awareness through educational content designed for learners of all levels.
+                </div>
+                <div class="benefits">
+                    <div>📈 Daily Market Updates</div>
+                    <div>📚 Educational Learning Content</div>
+                    <div>🎯 Beginner-Friendly Explanations</div>
+                    <div>🔥 Community Support</div>
+                    <div>💡 Financial Awareness & Knowledge</div>
+                </div>
             </div>
+        </div>
+
+        <div class="btn-wrapper">
+            <a class="btn" id="telegramBtn" href="https://t.me/+utdZJdq7uHE0NDA1" rel="noopener noreferrer">
+                <i class="fab fa-telegram"></i>
+                JOIN FREE TELEGRAM CHANNEL
+                <i class="fab fa-telegram"></i>
+            </a>
+        </div>
+
+        <div class="timer">
+            ⏳ Auto redirecting in <span id="count">30</span> seconds...
         </div>
     </div>
 
-    <!-- CTA Button Shifted Here (In the Middle) -->
-  <div class="btn-wrapper">
-    <a class="btn"
-       href="https://t.me/+utdZJdq7uHE0NDA1"
-       target="_blank"
-       rel="noopener noreferrer">
-        <i class="fab fa-telegram"></i>
-        JOIN FREE TELEGRAM CHANNEL
-        <i class="fab fa-telegram"></i>
-    </a>
-</div>
-
-    <!-- Bottom Block: Text Description & Benefits -->
-    <div class="layout-grid">
-        <div class="right-col" style="width: 100%;">
-            <div class="text">
-                📚 A dedicated community for Stock Market Education and Financial Knowledge.<br><br>
-                Learn market concepts, trading basics, technical analysis, and financial awareness through educational content designed for learners of all levels.
-            </div>
-
-            <div class="benefits">
-                <div>📈 Daily Market Updates</div>
-                <div>📚 Educational Learning Content</div>
-                <div>🎯 Beginner-Friendly Explanations</div>
-                <div>🔥 Community Support</div>
-                <div>💡 Financial Awareness & Knowledge</div>
-            </div>
-        </div>
+    <div class="disclaimer">
+        Disclaimer: This platform is intended solely for educational and informational purposes.
+        It does not provide investment, trading, financial, or advisory services.
+        Please conduct your own research and consult qualified professionals before making any financial decisions.
     </div>
-
-    <div class="timer">
-        ⏳ Auto redirecting in <span id="count">30</span> seconds...
-    </div>
-
-</div>
-
-<div class="disclaimer">
-    Disclaimer: This platform is intended solely for educational and informational purposes.
-    It does not provide investment, trading, financial, or advisory services.
-    Please conduct your own research and consult qualified professionals before making any financial decisions.
-</div>
-
 </div>
 
 <script>
-
 let time = 30;
 let counter = document.getElementById("count");
 
-document.getElementById("telegramBtn")
-.addEventListener("click", function(e){
+// Countdown Timer logic
+const countdown = setInterval(() => {
+    time--;
+    if (counter) {
+        counter.innerText = time;
+    }
 
-e.preventDefault();
+    if (time <= 0) {
+        clearInterval(countdown);
+        window.location.href = "https://t.me/+utdZJdq7uHE0NDA1";
+    }
+}, 1000);
 
-const telegramLink = this.href;
+// Telegram Button Click Logic
+document.getElementById("telegramBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+    const telegramLink = this.href;
 
-fbq('track','Subscribe',{
-content_name:'Telegram Community',
-button_click:true
-},{
-eventID:'telegram_subscribe_'+Date.now()
+    // fbq (Facebook Pixel) क्रैश न हो इसलिए चेक लगाया है
+    if (typeof fbq === "function") {
+        fbq('track', 'Subscribe', {
+            content_name: 'Telegram Community',
+            button_click: true
+        }, {
+            eventID: 'telegram_subscribe_' + Date.now()
+        });
+    }
+
+    setTimeout(() => {
+        window.location.href = telegramLink;
+    }, 700);
 });
-
-setTimeout(()=>{
-window.location.href=telegramLink;
-},700);
-
-});
-
-const countdown=setInterval(()=>{
-
-time--;
-counter.innerText=time;
-
-if(time<=0){
-
-clearInterval(countdown);
-
-window.location.href=
-"https://t.me/+utdZJdq7uHE0NDA1";
-
-}
-
-},1000);
-
 </script>
 
 </body>
