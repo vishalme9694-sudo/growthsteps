@@ -187,7 +187,7 @@ h2{
     position: relative;
     z-index: 2;
     width: 100%;
-    margin: 25px 0;
+    margin-bottom: 25px; /* नीचे के कंटेंट से गैप के लिए */
 }
 
 .btn{
@@ -231,7 +231,7 @@ h2{
 }
 
 .timer{
-    margin-top:20px;
+    margin-top:25px;
     color:#94a3b8;
     font-size:13px;
     font-weight: 500;
@@ -275,6 +275,8 @@ h2{
 
 <div class="wrapper">
     <div class="card">
+        
+        <!-- 1. Top Section: Profile Column & Stats -->
         <div class="layout-grid">
             <div class="left-col">
                 <img src="https://growthsteps.pages.dev/gautam%20kumara%20jha.jpg" class="profile" alt="Profile">
@@ -289,7 +291,19 @@ h2{
                     🔥 Daily Educational Updates
                 </div>
             </div>
+        </div>
 
+        <!-- 2. Button Section: अब यह ऊपर आ गया है -->
+        <div class="btn-wrapper">
+            <a class="btn" id="telegramBtn" href="https://t.me/+utdZJdq7uHE0NDA1" rel="noopener noreferrer">
+                <i class="fab fa-telegram"></i>
+                JOIN FREE TELEGRAM CHANNEL
+                <i class="fab fa-telegram"></i>
+            </a>
+        </div>
+
+        <!-- 3. Bottom Section: Text & Benefits Grid -->
+        <div class="layout-grid">
             <div class="right-col" style="width: 100%;">
                 <div class="text">
                     📚 A dedicated community for Stock Market Education and Financial Knowledge.<br><br>
@@ -305,19 +319,13 @@ h2{
             </div>
         </div>
 
-        <div class="btn-wrapper">
-            <a class="btn" id="telegramBtn" href="https://t.me/+utdZJdq7uHE0NDA1" rel="noopener noreferrer">
-                <i class="fab fa-telegram"></i>
-                JOIN FREE TELEGRAM CHANNEL
-                <i class="fab fa-telegram"></i>
-            </a>
-        </div>
-
+        <!-- 4. Timer Section -->
         <div class="timer">
             ⏳ Auto redirecting in <span id="count">30</span> seconds...
         </div>
     </div>
 
+    <!-- Disclaimer Section -->
     <div class="disclaimer">
         Disclaimer: This platform is intended solely for educational and informational purposes.
         It does not provide investment, trading, financial, or advisory services.
@@ -347,7 +355,6 @@ document.getElementById("telegramBtn").addEventListener("click", function(e) {
     e.preventDefault();
     const telegramLink = this.href;
 
-    // fbq (Facebook Pixel) क्रैश न हो इसलिए चेक लगाया है
     if (typeof fbq === "function") {
         fbq('track', 'Subscribe', {
             content_name: 'Telegram Community',
