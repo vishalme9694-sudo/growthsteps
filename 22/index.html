@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MUNAAF EDU</title>
+
+<!-- Google Fonts for better Marathi typography -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    color:#fff;
+    overflow-x:hidden;
+
+    /* मराठी संस्कृतीला शोभेल असा रॉयल भगवा (Saffron) आणि डार्क मरून वाईब देणारा ग्रेडिएंट */
+    background: radial-gradient(circle at top, 
+        #d9531e 0%, /* Royal Saffron */
+        #3d1103 30%, 
+        #140501 70%, 
+        #000000 100%);
+}
+
+.wrapper{
+    width:100%;
+    max-width:450px;
+    text-align:center;
+}
+
+.card{
+    position:relative;
+    overflow:hidden;
+    padding:40px 28px;
+    border-radius:24px; 
+
+    background:rgba(20, 5, 2, 0.92);
+    backdrop-filter:blur(20px);
+
+    /* प्रीमियम गोल्ड बॉर्डर */
+    border: 1px solid rgba(212, 175, 55, 0.35);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.7),
+    0 0 40px rgba(212, 175, 55, 0.1);
+
+    animation:float 4s ease-in-out infinite;
+}
+
+/* बॅकग्राउंडमध्ये गोल्डन ग्लो इफेक्ट */
+.card::before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:#d4af37;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.15;
+    top:-120px;
+    right:-120px;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-6px);
+    }
+}
+
+.profile{
+    width:125px;
+    height:125px;
+    border-radius:50%;
+    object-fit:cover;
+
+    /* प्रीमियम ट्रॅडिशनल गोल्ड बॉर्डर */
+    border:4px solid #d4af37;
+
+    box-shadow:
+    0 0 25px rgba(212, 175, 55, 0.4);
+    position:relative;
+    z-index:2;
+}
+
+.verify{
+    margin-top:12px;
+    color:#d4af37; /* Gold */
+    font-size:13px;
+    font-weight:700;
+    letter-spacing: 0.5px;
+}
+
+.verify i{
+    color:#22c55e; /* Green checkmark */
+}
+
+h2{
+    margin-top:15px;
+    font-size:24px;
+    color:#ffffff;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    position:relative;
+    z-index:2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.stats{
+    margin-top:18px;
+    color:#e2e8f0;
+    font-size:14px;
+    line-height:1.8;
+    font-weight:500;
+    background: rgba(212, 175, 55, 0.08);
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px dashed rgba(212, 175, 55, 0.2);
+}
+
+/* हायलाईट टेक्स्टसाठी गोल्ड कलर */
+.stats span {
+    color: #ffd700;
+    font-weight: 700;
+}
+
+.text{
+    margin-top:20px;
+    line-height:1.8;
+    font-size:15px;
+    color:#e2e8f0;
+}
+
+.benefits{
+    margin-top:22px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:18px;
+    text-align:left;
+}
+
+.benefits div{
+    padding:8px 0;
+    color:#f1f5f9;
+    font-size:14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* टेलिग्राम बटन - मॅचिंग सॅफरॉन-ब्लू प्रीमियम लूक */
+.btn{
+    margin-top:25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    width:100%;
+    padding:18px;
+    border-radius:50px;
+    text-decoration:none;
+
+    color:#fff;
+    font-size:16px;
+    font-weight:800;
+    letter-spacing: 0.5px;
+
+    background: linear-gradient(135deg, #0088cc, #006699);
+    box-shadow: 0 10px 30px rgba(0, 136, 204, 0.4);
+
+    transition:.3s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 136, 204, 0.6);
+}
+
+.btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition:.8s;
+}
+
+.btn:hover::before{
+    left:100%;
+}
+
+.timer{
+    margin-top:20px;
+    color:#94a3b8;
+    font-size:13px;
+}
+
+.timer span {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.disclaimer{
+    margin-top:25px;
+    font-size:11px;
+    line-height:1.8;
+    color:#94a3b8;
+    padding:0 10px;
+}
+
+@media(max-width:480px){
+    .card{ padding:35px 20px; }
+    h2{ font-size:20px; }
+    .profile{ width:110px; height:110px; }
+    .btn{ font-size:14px; padding:16px; }
+}
+
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1358701019466413');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1358701019466413&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="card">
+
+<img src="https://growthsteps.pages.dev/MARAATHI%20TRADER.jpg" class="profile" alt="Profile">
+
+<div class="verify">
+<i class="fas fa-check-circle"></i> व्हेरिफाइड कम्युनिटी
+</div>
+
+<h2>MARATHI TRADING LEARNING</h2>
+
+<div class="stats">
+⭐ <span>५०,०००+</span> पेक्षा जास्त विद्यार्थी / लर्नर्स <br>
+🌍 सर्वात वेगाने वाढणारी <span>मराठी</span> ट्रेडिंग कम्युनिटी <br>
+🔥 रोजचे शैक्षणिक अपडेट्स
+</div>
+
+<div class="text">
+📚 स्टॉक मार्केट आणि फायनान्शियल नॉलेजसाठी हक्काची मराठी कम्युनिटी.
+</div>
+
+<a class="btn" id="telegramBtn" href="https://t.me/+rIv1AzuZke44MWVl" rel="noopener noreferrer">
+<i class="fab fa-telegram font-awesome-icon"></i>
+JOIN FREE TELEGRAM CHANNEL
+<i class="fas fa-arrow-right"></i>
+</a>
+
+<div class="benefits">
+<div><i class="fas fa-chart-line" style="color: #22c55e;"></i> डेली मार्केट अपडेट्स</div>
+<div><i class="fas fa-book-open" style="color: #d4af37;"></i> मोफत लर्निंग कंटेंट</div>
+<div><i class="fas fa-bullseye" style="color: #ef4444;"></i> नवशिक्यांसाठी सोप्या भाषेत माहिती</div>
+<div><i class="fas fa-users" style="color: #3b82f6;"></i> मराठी कम्युनिटी अचूक सपोर्ट</div>
+<div><i class="fas fa-lightbulb" style="color: #eab308;"></i> मार्केट अवेअरनेस आणि नॉलेज</div>
+</div>
+
+<div class="timer">
+⏳ <span id="count">30</span> सेकंदात ऑटोमॅटिक रिडायरेक्ट होईल...
+</div>
+
+</div>
+
+<div class="disclaimer">
+<strong>टीप:</strong> हे प्लॅटफॉर्म केवळ शैक्षणिक आणि माहितीच्या उद्देशाने तयार केले गेले आहे. आम्ही कोणतीही गुंतवणूक, ट्रेडिंग किंवा आर्थिक सल्ला (Financial Advice) देत नाही. कोणताही निर्णय घेण्यापूर्वी स्वतःचा अभ्यास करा किंवा तुमच्या आर्थिक सल्लागाराचा सल्ला घ्या.
+</div>
+
+</div>
+
+<script>
+let time = 30;
+let counter = document.getElementById("count");
+
+document.getElementById("telegramBtn").addEventListener("click", function(e){
+    e.preventDefault();
+    const telegramLink = this.href;
+
+    fbq('track','Subscribe',{
+        content_name:'Telegram Community',
+        button_click:true
+    },{
+        eventID:'telegram_subscribe_'+Date.now()
+    });
+
+    setTimeout(()=>{
+        window.location.href=telegramLink;
+    },1000);
+});
+
+const countdown=setInterval(()=>{
+    time--;
+    counter.innerText=time;
+
+    if(time<=0){
+        clearInterval(countdown);
+        window.location.href="https://t.me/+rIv1AzuZke44MWVl";
+    }
+},1000);
+</script>
+
+</body>
+</html>
