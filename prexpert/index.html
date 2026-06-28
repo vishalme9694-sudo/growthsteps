@@ -7,11 +7,9 @@
 
 <title>Gautam Kumar Jha</title>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -175,7 +173,7 @@ h2{
     text-decoration:none;
 
     color:#111;
-    font-size:17px;
+    font-size:16px;
     font-weight:800;
 
     background:linear-gradient(
@@ -219,12 +217,6 @@ h2{
     left:100%;
 }
 
-.timer{
-    margin-top:18px;
-    color:#cbd5e1;
-    font-size:14px;
-}
-
 .disclaimer{
     margin-top:25px;
     font-size:11px;
@@ -232,29 +224,24 @@ h2{
     color:#cbd5e1;
     opacity:.8;
     padding:0 10px;
+    text-align: left;
 }
 
 @media(max-width:480px){
-
 .card{
-padding:35px 22px;
+    padding:35px 22px;
 }
-
 h2{
-font-size:24px;
+    font-size:24px;
 }
-
 .profile{
-width:110px;
-height:110px;
+    width:110px;
+    height:110px;
 }
-
 .btn{
-font-size:15px;
+    font-size:14px;
 }
-
 }
-
 </style>
 
 <!-- Meta Pixel Code -->
@@ -283,10 +270,7 @@ src="https://www.facebook.com/tr?id=27581604634860964&ev=PageView&noscript=1"
 
 <div class="card">
 
-<img
-src="http://growthsteps.pages.dev/pr.jpg"
-class="profile"
-alt="Profile">
+<img src="http://growthsteps.pages.dev/pr.jpg" class="profile" alt="Profile">
 
 <div class="verify">
 <i class="fas fa-check-circle"></i>
@@ -301,93 +285,51 @@ Verified Learning Community
 🔥 Daily Educational Updates
 </div>
 
-<a
-class="btn"
-id="telegramBtn"
-href="https://t.me/+nxPSjBKEXAszMTc1"
-rel="noopener noreferrer">
-
-<i class="fab fa-telegram"></i>
-JOIN FREE TELEGRAM CHANNEL
-<i class="fab fa-telegram"></i>
-
+<a class="btn" id="telegramBtn" href="https://t.me/+nxPSjBKEXAszMTc1" rel="noopener noreferrer">
+<i class="fas fa-graduation-cap"></i>
+ACCESS LEARNING COMMUNITY NOW
+<i class="fas fa-arrow-right"></i>
 </a>
 
 <div class="text">
-
 📚 A dedicated community for Stock Market Education and Financial Knowledge.<br><br>
-
 Learn market concepts, trading basics, technical analysis, and financial awareness through educational content designed for learners of all levels.
-
 </div>
 
 <div class="benefits">
-
 <div>📈 Daily Market Updates</div>
 <div>📚 Educational Learning Content</div>
 <div>🎯 Beginner-Friendly Explanations</div>
 <div>🔥 Community Support</div>
 <div>💡 Financial Awareness & Knowledge</div>
-
-</div>
-
-<div class="timer">
-⏳ Auto redirecting in <span id="count">30</span> seconds...
 </div>
 
 </div>
 
 <div class="disclaimer">
-
-Disclaimer: This platform is intended solely for educational and informational purposes.
-It does not provide investment, trading, financial, or advisory services.
-Please conduct your own research and consult qualified professionals before making any financial decisions.
-
+<strong>Important Disclaimer:</strong> Hum SEBI registered financial analysts nahi hain. Is community aur page par share kiya gaya sabhi content strictly educational aur learning purposes ke liye hai. Stock market investment and trading market risks ke adheen hain, isliye koi bhi financial decision lene se pehle apne certified advisor se salah zaroor len. Hum kisi bhi tarah ke profit ya loss ke liye responsible nahi hain. We do not provide tips or premium advisory calls.
+<br><br>
+<strong>Risk Disclosure:</strong> Stock market trading involves significant risk. Past performance is not indicative of future results. Please conduct thorough research or consult a certified financial expert before making any trading decisions.
 </div>
 
 </div>
 
 <script>
+document.getElementById("telegramBtn").addEventListener("click", function(e){
+    e.preventDefault();
+    const telegramLink = this.href;
 
-let time = 30;
-let counter = document.getElementById("count");
+    fbq('track','Subscribe',{
+        content_name:'Telegram Community',
+        button_click:true
+    },{
+        eventID:'telegram_subscribe_'+Date.now()
+    });
 
-document.getElementById("telegramBtn")
-.addEventListener("click", function(e){
-
-e.preventDefault();
-
-const telegramLink = this.href;
-
-fbq('track','Subscribe',{
-content_name:'Telegram Community',
-button_click:true
-},{
-eventID:'telegram_subscribe_'+Date.now()
+    setTimeout(()=>{
+        window.location.href = telegramLink;
+    }, 700);
 });
-
-setTimeout(()=>{
-window.location.href=telegramLink;
-},700);
-
-});
-
-const countdown=setInterval(()=>{
-
-time--;
-counter.innerText=time;
-
-if(time<=0){
-
-clearInterval(countdown);
-
-window.location.href=
-"https://t.me/+nxPSjBKEXAszMTc1";
-
-}
-
-},1000);
-
 </script>
 
 </body>
