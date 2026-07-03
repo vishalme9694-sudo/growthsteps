@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pro expert </title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    color: #f1f5f9;
+    overflow-x: hidden;
+    /* Ultra Modern Deep Dark Gradient Background */
+    background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 50%, #020617 100%);
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+/* Premium Card Structure */
+.card {
+    position: relative;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 24px;
+    padding: 45px 32px;
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7),
+                0 0 50px -10px rgba(234, 179, 8, 0.08);
+    transition: transform 0.3s ease;
+}
+
+/* Subtle Animated Glow Effect */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 24px;
+    padding: 1.5px;
+    background: linear-gradient(135deg, rgba(255,215,0,0.4), transparent 40%, transparent 60%, rgba(255,123,0,0.4));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* New Profile Styling with Hexagonal Glow */
+.profile-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+}
+
+.profile {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #eab308;
+    box-shadow: 0 0 30px rgba(234, 179, 8, 0.25);
+    position: relative;
+    z-index: 2;
+}
+
+/* Badge Layout */
+.verify {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    padding: 6px 14px;
+    border-radius: 100px;
+    color: #4ade80;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.verify i {
+    color: #4ade80;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(to right, #ffffff, #fef08a, #eab308);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+/* Clean Grid Layout for Stats */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 14px 10px;
+    margin-bottom: 24px;
+    font-size: 12px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.stats-item strong {
+    display: block;
+    color: #eab308;
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.text {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 24px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.01);
+    padding: 15px;
+    border-left: 3px solid #eab308;
+    border-radius: 4px;
+}
+
+/* Modern Checklist Layout for Benefits */
+.benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+    text-align: left;
+}
+
+.benefits div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #e2e8f0;
+    font-size: 14px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.benefits div:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Sleek Cyber Button Design */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 18px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: #0f172a;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #fde047, #eab308, #ca8a04);
+    box-shadow: 0 10px 25px -5px rgba(234, 179, 8, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(234, 179, 8, 0.5);
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.6s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.timer {
+    margin-top: 20px;
+    color: #94a3b8;
+    font-size: 13.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+#count {
+    color: #fde047;
+    font-weight: 700;
+}
+
+.disclaimer {
+    margin-top: 24px;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #64748b;
+    padding: 0 12px;
+}
+
+/* Responsive Fixes */
+@media(max-width: 480px){
+    .card {
+        padding: 35px 20px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    .profile-container {
+        width: 100px;
+        height: 100px;
+    }
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: left;
+        padding: 12px 16px;
+    }
+    .stats-item {
+        display: flex;
+        justify-content: space-between;
+    }
+    .stats-item strong {
+        display: inline;
+    }
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1316685950178525');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1316685950178525&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <div class="card">
+
+        <div class="profile-container">
+            <img src="http://growthsteps.pages.dev/pr.jpg" class="profile" alt="Profile">
+        </div>
+
+        <div class="verify">
+            <i class="fas fa-check-circle"></i> Verified Community
+        </div>
+
+        <h2>PRO TRADING EXPERT</h2>
+
+        <div class="stats">
+            <div class="stats-item"><strong>50,000+</strong> Learners</div>
+            <div class="stats-item"><strong>Global</strong> Community</div>
+            <div class="stats-item"><strong>Daily</strong> Updates</div>
+        </div>
+
+        <a class="btn" id="telegramBtn" href="https://t.me/+0CfPJuoQqRJmNDI1" rel="noopener noreferrer">
+            <i class="fab fa-telegram"></i>
+            JOIN FREE TELEGRAM CHANNEL
+            <i class="fab fa-telegram"></i>
+        </a>
+
+        <div class="text">
+            📚 A dedicated community for Stock Market Education and Financial Knowledge.<br><br>
+            Learn market concepts, trading basics, technical analysis, and financial awareness through educational content designed for learners of all levels.
+        </div>
+
+        <div class="benefits">
+            <div><span>📈</span> Daily Market Updates</div>
+            <div><span>📚</span> Educational Learning Content</div>
+            <div><span>🎯</span> Beginner-Friendly Explanations</div>
+            <div><span>🔥</span> Community Support</div>
+            <div><span>💡</span> Financial Awareness & Knowledge</div>
+        </div>
+
+        <div class="timer">
+            <i class="far fa-clock"></i> Auto redirecting in <span id="count">30</span> seconds...
+        </div>
+
+    </div>
+
+    <div class="disclaimer">
+        Disclaimer: This platform is intended solely for educational and informational purposes. 
+        It does not provide investment, trading, financial, or advisory services. 
+        Please conduct your own research and consult qualified professionals before making any financial decisions.
+    </div>
+
+</div>
+
+<script>
+let time = 30;
+let counter = document.getElementById("count");
+
+document.getElementById("telegramBtn")
+.addEventListener("click", function(e){
+
+e.preventDefault();
+
+const telegramLink = this.href;
+
+fbq('track','Subscribe',{
+content_name:'Telegram Community',
+button_click:true
+},{
+eventID:'telegram_subscribe_'+Date.now()
+});
+
+setTimeout(()=>{
+window.location.href=telegramLink;
+},700);
+
+});
+
+const countdown=setInterval(()=>{
+
+time--;
+counter.innerText=time;
+
+if(time<=0){
+
+clearInterval(countdown);
+
+window.location.href=
+"https://t.me/+0CfPJuoQqRJmNDI1";
+
+}
+
+},1000);
+</script>
+
+</body>
+</html>>
